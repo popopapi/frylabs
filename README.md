@@ -55,7 +55,7 @@ A script `@match` bejegyzései több magyar/ER felületet lefednek (Obuda/Unideb
 
 - Ha nem működik a gyorsbillentyű: győződj meg róla, hogy nem input/textarea fókuszban vagy.
 - Ha az alsó ablak nem jelenik meg: nézd meg, nem zártad-e be sessionre (Alt+T-vel visszahozható).
-- Ha a felső szöveg nem látszik jól speciális hátteren: jelezd; opcionálisan adható enyhe `text-shadow` is a jobb olvashatóság érdekében.
+
 
 ## Licenc
 
