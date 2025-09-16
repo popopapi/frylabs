@@ -45,10 +45,10 @@
 
 // : Script header {{{
 // ==UserScript==
-// @name         Moodle/Elearning/KMOOC test help
-// @version      2.1.5.5
+// @name         frylabs+
+// @version      1.0.0
 // @description  Online Moodle/Elearning/KMOOC test help
-// @author       MrFry
+// @author       popopapi
 // @match        https://main.elearning.uni-obuda.hu/*
 // @match        https://kmooc.elearning.uni-obuda.hu/*
 // @match        https://elearning.uni-obuda.hu/*
