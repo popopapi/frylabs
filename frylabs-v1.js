@@ -1664,9 +1664,6 @@
     // Respect session-persistent menu close; only show if enabled
     const menuVisible = getMenuEnabled() && !getMenuClosedForSession()
     if (menuVisible) {
-      try {
-        sessionStorage.setItem('scriptMenuVisible', 'true')
-      } catch (e) {}
       ShowMenu()
     }
 
@@ -3338,11 +3335,11 @@
 
   function getMenuClosedForSession() {
     try {
-      return sessionStorage.getItem(MENU_SESSION_CLOSED_KEY) === 'false'
-        ? true
-        : false
+      // Hidden by default: consider the menu "closed" unless explicitly marked 'true'
+      return sessionStorage.getItem(MENU_SESSION_CLOSED_KEY) !== 'true'
     } catch (e) {
-      return false
+      // If sessionStorage is unavailable, default to hidden (closed)
+      return true
     }
   }
 
@@ -3358,7 +3355,8 @@
     // Only show if the feature globally enabled
     if (getMenuEnabled()) {
       try {
-        sessionStorage.removeItem(MENU_SESSION_CLOSED_KEY)
+        // Mark explicitly visible for this session
+        sessionStorage.setItem(MENU_SESSION_CLOSED_KEY, 'true')
       } catch (e) {}
       ShowMenu()
     }
