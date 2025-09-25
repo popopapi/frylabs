@@ -49,6 +49,7 @@
 // @version      1.0.0
 // @description  Online Moodle/Elearning/KMOOC test help
 // @author       popopapi
+// @match        https://kmooc.uni-obuda.hu/*
 // @match        https://main.elearning.uni-obuda.hu/*
 // @match        https://kmooc.elearning.uni-obuda.hu/*
 // @match        https://elearning.uni-obuda.hu/*
