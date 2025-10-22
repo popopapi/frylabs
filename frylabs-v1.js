@@ -1050,7 +1050,7 @@
       getterFunction: (node) => {
         // TODO dragboxes
         return 'asd'
-      }, 
+      },
     },*/
   }
 
@@ -2887,7 +2887,7 @@
                       alt: e.altKey,
                       ctrl: e.ctrlKey,
                       shift: e.shiftKey,
-                      key: (e.key || '').toLowerCase(),
+                      key: normalizeEventKey(e),
                     }
                     // Avoid assigning pure modifier keys
                     if (['alt', 'shift', 'control'].includes(newSc.key)) {
@@ -3315,6 +3315,30 @@
     return parts.join('+')
   }
 
+  // Normalize a KeyboardEvent to a simple key string (letter or digit) in aą
+  // layout-independent way. On macOS Option/Alt combinations sometimes produce
+  // special characters in `e.key` (depending on layout), so prefer `e.code`
+  // (physical key) when `e.key` is not a simple alphanumeric character.
+  function normalizeEventKey(e) {
+    const raw = (e.key || '').toLowerCase()
+    // Accept a single letter or digit
+    if (/^[a-z0-9]$/.test(raw)) return raw
+
+    // Fallback to e.code if available (e.g. 'KeyT' -> 't', 'Digit1' -> '1')
+    if (e.code && typeof e.code === 'string') {
+      if (e.code.startsWith('Key') && e.code.length === 4) {
+        return e.code.slice(3).toLowerCase()
+      }
+      if (e.code.startsWith('Digit')) {
+        return e.code.slice(5)
+      }
+    }
+
+    // Last resort: return the raw value (may be a symbol), so behavior is
+    // unchanged for other keys.
+    return raw
+  }
+
   function getTopBoxEnabled() {
     const v = getVal(TOPBOX_ENABLED_KEY)
     // GM_getValue returns undefined for missing; treat as true by default
@@ -3391,7 +3415,7 @@
 
   function matchShortcut(e, sc) {
     if (!sc) return false
-    const key = (e.key || '').toLowerCase()
+    const key = normalizeEventKey(e)
     return (
       e.altKey === !!sc.alt &&
       e.ctrlKey === !!sc.ctrl &&
