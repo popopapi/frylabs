@@ -2552,8 +2552,8 @@
     const childrenTree = {
       header: {
         style: {
-          display: 'none',
-          padding: '0',
+          display: getCurrMsg().header ? '' : 'none',
+          padding: '5px 0px',
         },
       },
       msgContainer: {
@@ -2565,7 +2565,7 @@
         children: {
           leftSideDiv: {
             style: {
-              display: 'none',
+              display: isSimpleMessage ? 'none' : 'flex',
               flexFlow: 'column',
               width: sidesWidth,
             },
@@ -2586,7 +2586,7 @@
                   },
                   arrowStyle
                 ),
-                innerText: msgItem[currQuestionIndex].length > 1 ? '⬅️' : '',
+                innerText: msgItem[currQuestionIndex].length > 1 ? '←' : '',
                 onClick: (e) => {
                   e.stopPropagation()
                   if (currPossibleAnswerIndex > 0) {
@@ -2606,7 +2606,7 @@
           },
           rightSideDiv: {
             style: {
-              display: 'none',
+              display: isSimpleMessage ? 'none' : 'flex',
               flexFlow: 'column',
               width: sidesWidth,
             },
@@ -2619,7 +2619,7 @@
                   },
                   arrowStyle
                 ),
-                innerText: msgItem.length > 1 ? '⬆️' : '',
+                innerText: msgItem.length > 1 ? '⬆' : '',
                 onClick: (e) => {
                   if (msgItem.length > 1) {
                     e.stopPropagation()
@@ -2638,7 +2638,7 @@
                   },
                   arrowStyle
                 ),
-                innerText: msgItem.length > 1 ? '⬇️' : '',
+                innerText: msgItem.length > 1 ? '⬇' : '',
                 onClick: (e) => {
                   if (msgItem.length > 1) {
                     e.stopPropagation()
@@ -2657,7 +2657,7 @@
                   },
                   arrowStyle
                 ),
-                innerText: msgItem[currQuestionIndex].length > 1 ? '➡️' : '',
+                innerText: msgItem[currQuestionIndex].length > 1 ? '→' : '',
                 onClick: (e) => {
                   e.stopPropagation()
                   if (
