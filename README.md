@@ -2,7 +2,7 @@
 
 # Frylabs Userscript (frylabs-v1.js)
 
-Egyszerű segédscript Moodle/Elearning/KMOOC környezethez.
+Egyszerű vibekódolt (AI-t használtam de ettől függetlenül átnéztem és tesztelve van) segédscript Moodle/Elearning/KMOOC környezethez.
 
 - Bal alsó vezérlőablak (menü) az állapotokhoz és bejelentkezéshez
 - Billentyűparancsok (testreszabhatók):
