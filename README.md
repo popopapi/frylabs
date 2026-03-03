@@ -1,3 +1,5 @@
+# !! A REPO ARCHIVÁLVA LETT, MERT MÁR EGY MASSZÍVAN ÁTALAKÍTOTT VERZIÓT HASZNÁLOK/FEJLESZTEK, AMI AZONBAN SAJNOS EGY PRIVÁT PROJECT. ETTŐL FÜGGETLENÜL NEM LÁTOK RÁ OKOT, HOGY NE MŰKÖDNE MÉG EGY JÓ IDEIG !!
+
 # Frylabs Userscript (frylabs-v1.js)
 
 Egyszerű segédscript Moodle/Elearning/KMOOC környezethez.
